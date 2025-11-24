@@ -1,0 +1,10 @@
+theme = Catppuccin Mocha
+
+font-family = Caskaydia Cove Nerd Font Mono
+font-family = LXGW WenKai Mono
+font-size = 12
+background = #000000
+background-opacity = 0.6
+
+custom-shader = ~/.config/ghostty/shaders/smear_cursor.frag
+keybind = shift+enter=text:\x1b\r
