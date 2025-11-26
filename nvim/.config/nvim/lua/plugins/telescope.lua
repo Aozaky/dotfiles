@@ -8,13 +8,13 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		event = "VeryLazy",
-		opts = {
-			extensions = {
-				fzf = {},
-				["ui-select"] = { require("telescope.themes").get_dropdown() },
-			},
-		},
 		config = function()
+			require("telescope").setup({
+				extensions = {
+					fzf = {},
+					["ui-select"] = { require("telescope.themes").get_dropdown() },
+				},
+			})
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("ui-select")
 

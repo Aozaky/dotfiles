@@ -24,6 +24,7 @@ zinit light-mode for \
 
 # Environment
 export PATH=~/.npm-global/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 # MegaLLM Configuration
@@ -96,14 +97,12 @@ alias cat="bat"
 export BAT_THEME="Catppuccin Mocha"
 
 # the fuck
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias fk)"
+# eval "$(thefuck --alias)"
+# eval "$(thefuck --alias fk)"
 
 # zoxide
 eval "$(zoxide init zsh)"
 alias cd="z"
-
-
 
 
 # fzf config
