@@ -21,22 +21,55 @@ return {
 					},
 				},
 			})
-			vim.cmd.colorscheme("catppuccin-mocha")
+			-- vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
-	-- {
-	-- 	"xiyaowong/transparent.nvim",
-	-- 	config = function()
-	-- 		require("transparent").setup({
-	-- 			extra_groups = {
-	-- 				"BlinkCmpDoc",
-	-- 				"BlinkCmpDocBorder",
-	-- 				"BlinkCmpDocSeparator",
-	-- 				"BlinkCmpSignatureHelp",
-	-- 				"BlinkCmpSignatureHelpBorder",
-	-- 			},
-	-- 			exclude_groups = {},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			-- vim.cmd("colorscheme rose-pine")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
+		config = function()
+			require("kanagawa").setup({
+				colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
+
+				overrides = function(colors)
+					local theme = colors.theme
+					local makeDiagnosticColor = function(color)
+						local c = require("kanagawa.lib.color")
+						return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
+					end
+
+					return {
+						BlinkCmpMenu = { bg = theme.ui.bg },
+						BlinkCmpSource = { bg = theme.ui.bg },
+						BlinkCmpMenuBorder = { fg = "", bg = theme.ui.bg },
+
+						NormalFloat = { bg = "none" },
+						FloatBorder = { bg = "none" },
+						FloatTitle = { bg = "none" },
+
+						LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+
+						Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+						PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+						PmenuSbar = { bg = theme.ui.bg_m1 },
+						PmenuThumb = { bg = theme.ui.bg_p2 },
+
+						DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
+						DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
+						DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
+						DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
+					}
+				end,
+			})
+			vim.cmd.colorscheme("kanagawa")
+		end,
+	},
 }

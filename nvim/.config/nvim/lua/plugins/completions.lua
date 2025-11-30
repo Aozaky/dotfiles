@@ -42,13 +42,13 @@ return {
 				-- trigger = {
 				-- 	show_in_snippet = false,
 				-- },
-				list = {
-					selection = {
-						preselect = function(ctx)
-							return not require("blink.cmp").snippet_active({ direction = 1 })
-						end,
-					},
-				},
+				-- list = {
+				-- 	selection = {
+				-- 		preselect = function(ctx)
+				-- 			return not require("blink.cmp").snippet_active({ direction = 1 })
+				-- 		end,
+				-- 	},
+				-- },
 				ghost_text = { enabled = false },
 				documentation = {
 					auto_show = true,
@@ -83,6 +83,16 @@ return {
 		config = function(_, opts)
 			require("blink.cmp").setup(opts)
 			require("luasnip.loaders.from_vscode").lazy_load()
+
+			-- Jump forward
+			vim.keymap.set({ "i", "s" }, "<C-j>", function()
+				return require("luasnip").jump(1)
+			end)
+
+			-- Jump backward
+			vim.keymap.set({ "i", "s" }, "<C-k>", function()
+				return require("luasnip").jump(-1)
+			end)
 		end,
 	},
 }

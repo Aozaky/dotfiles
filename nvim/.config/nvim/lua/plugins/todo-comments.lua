@@ -2,8 +2,11 @@ return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	event = "VeryLazy",
+	keys = {
+		{ "<leader>st", "<Cmd>TodoTelescope keywords=TODO,FIX<Cr>", desc = "[S]earch [T]odo" },
+	},
 	opts = {
-    merge_keywords = false,
+		merge_keywords = false,
 		keywords = {
 			FIX = {
 				icon = " ",
