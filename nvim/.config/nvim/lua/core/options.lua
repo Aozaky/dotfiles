@@ -17,7 +17,6 @@ vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.scrolloff = 10
 
-
 -- 分屏
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -33,7 +32,6 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-
 
 -- 诊断配置
 vim.schedule(function()
