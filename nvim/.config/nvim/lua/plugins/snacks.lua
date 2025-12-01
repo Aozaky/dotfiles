@@ -5,20 +5,20 @@ return {
 		lazy = false,
 		---@type snacks.Config
 		opts = {
-			bigfile = {},
 			dashboard = {},
+      bigfile = {},
+			explorer = {},
 			indent = {},
+      scope = {},
 			notifier = {},
-			scope = {},
 		},
-		-- keys = {
-		-- 	{
-		-- 		"<leader>th",
-		-- 		function()
-		-- 			require("snacks.picker").colorschemes({ layout = "ivy" })
-		-- 		end,
-		-- 		desc = "Pick Theme",
-		-- 	},
-		-- },
+		keys = {
+			{
+				"<leader>ef",
+				function()
+					Snacks.explorer.open()
+				end,
+			},
+		},
 	},
 }

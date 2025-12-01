@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-mini/mini.files",
 		opts = {},
-		keys = { "<leader>ee", "<leader>ef" },
+		keys = { "<leader>ee" },
 		config = function()
 			-- NOTE: keymaps
 			local MiniFiles = require("mini.files")
@@ -42,16 +42,13 @@ return {
 		end,
 	},
 	{
-		"nvim-mini/mini.surround",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {},
-	},
-	{
 		"nvim-mini/mini.nvim",
 		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.ai").setup()
+      require("mini.surround").setup()
+      require("mini.move").setup()
 
 			require("mini.basics").setup({
 				options = {
