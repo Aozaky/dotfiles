@@ -48,8 +48,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
 
-zinit light Aloxaf/fzf-tab # 必须放最后
-
 
 # cdreplay
 zinit cdreplay -q
@@ -60,16 +58,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-# fzf-tab configuration
-zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza --tree --level=3 --color=always --icons=always $realpath'
-zstyle ':fzf-tab:complete:nvim:*' fzf-preview '
-    if [[ -d $realpath ]]; then
-        eza --tree --level=3 --color=always --icons=always $realpath
-    else
-        bat -n --color=always --line-range :500 $realpath
-    fi
-'
 
 # Keybindings
 bindkey '^p' history-search-backward
@@ -97,8 +85,8 @@ alias cat="bat"
 export BAT_THEME="Catppuccin Mocha"
 
 # the fuck
-# eval "$(thefuck --alias)"
-# eval "$(thefuck --alias fk)"
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias fk)"
 
 # zoxide
 eval "$(zoxide init zsh)"
