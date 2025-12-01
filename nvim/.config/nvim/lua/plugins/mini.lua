@@ -7,15 +7,15 @@ return {
 			-- NOTE: keymaps
 			local MiniFiles = require("mini.files")
 
-			vim.keymap.set("n", "<leader>ee", function()
-				MiniFiles.open()
-			end, { desc = "Open MiniFiles" })
+			-- vim.keymap.set("n", "<leader>ee", function()
+			-- 	MiniFiles.open()
+			-- end, { desc = "Open MiniFiles" })
 
-			vim.keymap.set("n", "<leader>ef", function()
+			vim.keymap.set("n", "<leader>ee", function()
 				MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 			end, { desc = "Open MiniFiles (current file)" })
 
-			-- NOTE: show_dotfiles
+			-- note: show_dotfiles
 			local show_dotfiles = true
 
 			local filter_show = function(fs_entry)
@@ -29,11 +29,11 @@ return {
 			local toggle_dotfiles = function()
 				show_dotfiles = not show_dotfiles
 				local new_filter = show_dotfiles and filter_show or filter_hide
-				MiniFiles.refresh({ content = { filter = new_filter } })
+				minifiles.refresh({ content = { filter = new_filter } })
 			end
 
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "MiniFilesBufferCreate",
+			vim.api.nvim_create_autocmd("user", {
+				pattern = "minifilesbuffercreate",
 				callback = function(args)
 					local buf_id = args.data.buf_id
 					vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id })

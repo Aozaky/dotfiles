@@ -19,7 +19,6 @@ return {
 			lsp_format = "fallback",
 		},
 		format_on_save = {
-			lsp_format = "fallback",
 			timeout_ms = 500,
 		},
 		notify_on_error = true,
@@ -30,7 +29,7 @@ return {
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	end,
 
-	config = function()
+	config = function(_, opts)
 		local prettier = { "prettierd", "prettier", stop_after_first = true }
 		local isort_black = { "isort", "black" }
 		local stylua = { "stylua" }
@@ -64,8 +63,8 @@ return {
 			formatters_by_ft[ft] = prettier
 		end
 
-		require("conform").setup({
-			formatters_by_ft = formatters_by_ft,
-		})
+		opts.formatters_by_ft = formatters_by_ft
+
+		require("conform").setup(opts)
 	end,
 }
