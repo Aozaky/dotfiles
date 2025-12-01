@@ -10,6 +10,21 @@ return {
 		config = function()
 			vim.keymap.set("n", "<leader>cm", "<Cmd>Mason<Cr>", { desc = "Mason" })
 
+      -- ensure_installed
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"bashls",
+					"eslint",
+					"cssls",
+					"html",
+					"jsonls",
+					"emmet_ls",
+					"pyright",
+					"vtsls",
+				},
+			})
+
 			-- 全局 LSP 服务器配置
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
@@ -48,7 +63,6 @@ return {
 					map("gd", "<Cmd>Lspsaga goto_definition<CR>")
 					map("gkd", "<Cmd>Lspsaga peek_definition<CR>")
 					map("gr", "<Cmd>Lspsaga finder<CR>")
-					map("K", "<Cmd>Lspsaga hover_doc<CR>")
 					map("]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>")
 					map("[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>")
 				end,

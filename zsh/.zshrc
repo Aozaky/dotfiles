@@ -33,7 +33,10 @@ export ANTHROPIC_API_KEY="sk-mega-0d8e7f7de68c73e155334907d4b9f6452b549dee01204b
 
 
 # Starship
-eval "$(starship init zsh)"
+type starship_zle-keymap-select >/dev/null || \
+  {
+    eval "$(starship init zsh)"
+  }
 
 
 # Enable completion system
