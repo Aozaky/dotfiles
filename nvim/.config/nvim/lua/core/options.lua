@@ -38,7 +38,7 @@ vim.schedule(function()
 	vim.diagnostic.config({
 		virtual_text = {
 			spacing = 4,
-			prefix = "■",
+			prefix = " ■",
 		},
 		virtual_lines = false,
 		signs = true,
