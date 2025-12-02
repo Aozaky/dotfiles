@@ -6,10 +6,9 @@ return {
 		---@type snacks.Config
 		opts = {
 			dashboard = {},
-      bigfile = {},
+			bigfile = {},
 			explorer = {},
 			indent = {},
-      scope = {},
 			notifier = {},
 		},
 		keys = {
