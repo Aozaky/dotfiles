@@ -26,6 +26,8 @@ zinit light-mode for \
 export PATH=~/.npm-global/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export EDITOR=nvim
+
 
 # MegaLLM Configuration
 export ANTHROPIC_BASE_URL="https://ai.megallm.io"
@@ -42,7 +44,6 @@ type starship_zle-keymap-select >/dev/null || \
 # Enable completion system
 zmodload zsh/complist
 autoload -Uz compinit; compinit
-_comp_options+=(globdots)  # Include dotfiles in completion
 
 
 # Plugins
