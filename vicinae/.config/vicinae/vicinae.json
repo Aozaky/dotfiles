@@ -3,6 +3,7 @@
     "considerPreedit": false,
     "faviconService": "twenty",
     "font": {
+        "normal": "Inter",
         "size": 11
     },
     "keybinding": "emacs",
