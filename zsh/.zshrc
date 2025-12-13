@@ -29,11 +29,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR=nvim
 
 
-# MegaLLM Configuration
-export ANTHROPIC_BASE_URL="https://ai.megallm.io"
-export ANTHROPIC_API_KEY="sk-mega-0d8e7f7de68c73e155334907d4b9f6452b549dee01204b47de05b929254d2b5e"
-
-
 # Starship
 type starship_zle-keymap-select >/dev/null || \
   {
@@ -41,63 +36,7 @@ type starship_zle-keymap-select >/dev/null || \
   }
 
 
-# Enable completion system
-zmodload zsh/complist
-autoload -Uz compinit; compinit
-
-
-# Plugins
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light jeffreytse/zsh-vi-mode
-
-
-# cdreplay
-zinit cdreplay -q
-
-
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu list
-
-
-# Keybindings
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-bindkey '^r' fzf-history-search
-
-# History
-HISTSIZE=5000
-HISTFILE=~/.config/zsh/.zsh_history
-SAVEHIST=$HISTSIZE
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-
-
-# alias
-alias ls="eza --color=always --long --git --icons=always --no-user"
-alias lsa="ls -a"
-alias n="nvim"
-alias mkdir="mkdir -p"
-
-# bat config
-alias cat="bat"
-export BAT_THEME="Catppuccin Mocha"
-
-# the fuck
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias fk)"
-
-# zoxide
-eval "$(zoxide init zsh)"
-alias cd="z"
-
-
-# fzf config
+# FZF config
 source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS="--bind='tab:accept'"
@@ -128,6 +67,67 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
+
+
+# Enable completion system
+zmodload zsh/complist
+
+
+# Plugins
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light jeffreytse/zsh-vi-mode
+
+
+# zsh-vi-mode config
+function zvm_after_init() {
+  zvm_bindkey viins '^P' history-search-backward
+  zvm_bindkey viins '^N' history-search-forward
+  zvm_bindkey viins '^R' fzf-history-widget
+}
+
+
+autoload -Uz compinit; compinit
+zinit cdreplay -q
+
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu list
+
+
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.config/zsh/.zsh_history
+SAVEHIST=$HISTSIZE
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+
+
+# alias
+alias ls="eza --color=always --long --git --icons=always --no-user --group-directories-first"
+alias lsa="ls -a"
+alias n="nvim"
+alias mkdir="mkdir -p"
+
+# bat config
+alias cat="bat"
+export BAT_THEME="Catppuccin Mocha"
+
+# the fuck
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias fk)"
+
+# zoxide
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+
 
 
 stty -ixon
