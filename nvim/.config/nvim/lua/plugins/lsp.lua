@@ -10,19 +10,9 @@ return {
 		config = function()
 			vim.keymap.set("n", "<leader>cm", "<Cmd>Mason<Cr>", { desc = "Mason" })
 
-      -- ensure_installed
+			-- ensure_installed
 			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"bashls",
-					"eslint",
-					"cssls",
-					"html",
-					"jsonls",
-					"emmet_ls",
-					"pyright",
-					"vtsls",
-				},
+				ensure_installed = { "lua_ls" },
 			})
 
 			-- 全局 LSP 服务器配置
