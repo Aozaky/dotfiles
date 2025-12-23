@@ -18,7 +18,7 @@ return {
 			-- note: show_dotfiles
 			local show_dotfiles = true
 
-			local filter_show = function(fs_entry)
+			local filter_show = function()
 				return true
 			end
 
@@ -42,13 +42,18 @@ return {
 		end,
 	},
 	{
+		"nvim-mini/mini.pairs",
+		event = "InsertEnter",
+		opts = {},
+	},
+	{
 		"nvim-mini/mini.nvim",
 		event = "VeryLazy",
 		version = false,
 		config = function()
 			require("mini.ai").setup()
-      require("mini.surround").setup()
-      require("mini.move").setup()
+			require("mini.surround").setup()
+			require("mini.move").setup()
 
 			require("mini.basics").setup({
 				options = {
