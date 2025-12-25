@@ -4,8 +4,27 @@ set ignorecase
 set smartcase
 set scrolloff=8
 
-" Plugins
-set easymotion
+" Flash
+nmap ss <Action>(flash.search)
+xmap ss <Action>(flash.search)
+
+" AnyObject
+set anyobject
+let g:anyobject_included = "AnyFunction,AnyClass,AnyArgument,AnyCondition,AnyLoop,AnyQuote,AnyBracket,AnyCommnet,AnyIndentBlock,AnySubword"
+let g:anyobject_map_anyclass = "C"
+let g:anyobject_map_anycondition = "c"
+let g:anyobject_map_anybracket = "b"
+let g:anyobject_map_anycomment = "/"
+let g:anyobject_map_anyindentblock = "i"
+let g:anyobject_map_anysubword = "s"
+
+" H 跳转到行首非空字符
+nnoremap H ^
+vnoremap H ^
+
+" L 跳转到行尾
+nnoremap L $
+vnoremap L $
 
 nmap gy "+y
 nmap gp "+p
@@ -55,7 +74,3 @@ nmap <C-]> <Action>(NextTab)
 nmap <leader>bd <Action>(CloseContent)
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nmap <C-Space><C-Space> <C-^>
-
-map ss <Plug>(easymotion-s)
-
-

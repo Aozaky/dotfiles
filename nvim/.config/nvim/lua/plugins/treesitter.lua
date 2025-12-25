@@ -42,21 +42,25 @@ return {
 						["iC"] = "@class.inner",
 						["aC"] = "@class.outer",
 
-						-- Assignment
-						["ia"] = "@assignment.rhs",
-						["aa"] = "@assignment.outer",
-
-						-- Parameter
-						["ip"] = "@parameter.inner",
-						["ap"] = "@parameter.outer",
-
-						-- Call
-						["ic"] = "@call.inner",
-						["ac"] = "@call.outer",
+						-- Parameter/Argument
+						["ia"] = "@parameter.inner",
+						["aa"] = "@parameter.outer",
 
 						-- Number
 						["in"] = "@number.inner",
 						["an"] = "@number.outer",
+
+						-- Conditional
+						["ic"] = "@conditional.inner",
+						["ac"] = "@conditional.outer",
+
+						-- Loop
+						["il"] = "@loop.inner",
+						["al"] = "@loop.outer",
+
+						--Comment
+						["i/"] = "@comment.inner",
+						["a/"] = "@comment.outer",
 					},
 				},
 				move = {
