@@ -10,13 +10,11 @@ xmap ss <Action>(flash.search)
 
 " AnyObject
 set anyobject
-let g:anyobject_included = "AnyFunction,AnyClass,AnyArgument,AnyCondition,AnyLoop,AnyQuote,AnyBracket,AnyCommnet,AnyIndentBlock,AnySubword"
+let g:anyobject_included = "AnyFunction,AnyClass,AnyArgOrItem,AnyCondition,AnyLoop,AnyQuote,AnyBracket,AnyComment,AnySubWord"
 let g:anyobject_map_anyclass = "C"
 let g:anyobject_map_anycondition = "c"
 let g:anyobject_map_anybracket = "b"
-let g:anyobject_map_anycomment = "/"
-let g:anyobject_map_anyindentblock = "i"
-let g:anyobject_map_anysubword = "s"
+let g:anyobject_map_anyargoritem = "a"
 
 " H 跳转到行首非空字符
 nnoremap H ^

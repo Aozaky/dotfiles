@@ -57,10 +57,6 @@ return {
 						-- Loop
 						["il"] = "@loop.inner",
 						["al"] = "@loop.outer",
-
-						--Comment
-						["i/"] = "@comment.inner",
-						["a/"] = "@comment.outer",
 					},
 				},
 				move = {
