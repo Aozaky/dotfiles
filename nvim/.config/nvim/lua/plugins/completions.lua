@@ -13,9 +13,7 @@ return {
 		event = "InsertEnter",
 		dependencies = { "L3MON4D3/LuaSnip" },
 		opts = {
-			keymap = {
-				preset = "super-tab",
-			},
+			keymap = { preset = "super-tab" },
 			snippets = { preset = "luasnip" },
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -39,6 +37,10 @@ return {
 						},
 					},
 				},
+				documentation = {
+					auto_show = true,
+					window = { scrollbar = false },
+				},
 				-- trigger = {
 				-- 	show_in_snippet = false,
 				-- },
@@ -50,12 +52,6 @@ return {
 				-- 	},
 				-- },
 				ghost_text = { enabled = false },
-				documentation = {
-					auto_show = true,
-					window = {
-						scrollbar = false,
-					},
-				},
 			},
 			cmdline = {
 				sources = function()
@@ -68,13 +64,10 @@ return {
 					end
 					return {}
 				end,
-				keymap = {
-					preset = "super-tab",
-				},
+				keymap = { preset = "super-tab" },
 				completion = {
-					menu = {
-						auto_show = true,
-					},
+					menu = { auto_show = true },
+					ghost_text = { enabled = false },
 				},
 			},
 			fuzzy = { implementation = "prefer_rust_with_warning" },
