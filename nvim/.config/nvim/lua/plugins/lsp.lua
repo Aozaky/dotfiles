@@ -1,19 +1,19 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
+		"mason-org/mason-lspconfig.nvim",
+		opts = {
+			automatic_enable = true,
+			ensure_installed = { "lua_ls" },
+		},
 		event = "VeryLazy",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
-			{ "mason-org/mason-lspconfig.nvim", opts = {} },
+			{ "neovim/nvim-lspconfig", dependencies = { "saghen/blink.cmp" } },
 			{ "j-hui/fidget.nvim", event = "LspAttach", opts = {} },
 		},
-		config = function()
+		config = function(_, opts)
+			require("mason-lspconfig").setup(opts)
 			vim.keymap.set("n", "<leader>cm", "<Cmd>Mason<Cr>", { desc = "Mason" })
-
-			-- ensure_installed
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
-			})
 
 			-- 全局 LSP 服务器配置
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
