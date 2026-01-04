@@ -17,12 +17,12 @@ let g:anyobject_map_anybracket = "b"
 let g:anyobject_map_anyargoritem = "a"
 
 " H 跳转到行首非空字符
-nnoremap H ^
-vnoremap H ^
+nmap H ^
+vmap H ^
 
 " L 跳转到行尾
-nnoremap L $
-vnoremap L $
+nmap L $
+vmap L $
 
 nmap gy "+y
 nmap gp "+p
@@ -34,15 +34,20 @@ imap <A-j> <Down>
 imap <A-k> <Up>
 imap <A-l> <Right>
 
+nmap <Tab> >>
+nmap <S-Tab> <<
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
 " Alt-based code movement
 nmap <A-j> <Action>(MoveLineDown)
 nmap <A-k> <Action>(MoveLineUp)
-nmap <A-h> <Action>(MoveStatementLeft)
-nmap <A-l> <Action>(MoveStatementRight)
 vmap <A-j> <Action>(MoveLineDown)
 vmap <A-k> <Action>(MoveLineUp)
-vmap <A-h> <Action>(MoveStatementLeft)
-vmap <A-l> <Action>(MoveStatementRight)
+nmap <A-l> >>
+nmap <A-h> <<
+vmap <A-l> >gv
+vmap <A-h> <gv
 
 " Format code
 nmap <leader><leader>f <Action>(ReformatCode)
