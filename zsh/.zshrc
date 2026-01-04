@@ -111,7 +111,7 @@ setopt hist_ignore_all_dups
 
 # alias
 alias ls="eza --color=always --long --git --icons=always --no-user --group-directories-first"
-alias lsa="ls -a"
+alias la="ls -a"
 alias n="nvim"
 alias mkdir="mkdir -p"
 
@@ -127,9 +127,9 @@ eval "$(thefuck --alias fk)"
 eval "$(zoxide init zsh)"
 alias cd="z"
 
-
-
-
+# 禁用Ctrl S/Q
 stty -ixon
+
+bindkey -s '^Xgc' 'git commit -m ""\C-b'
 
 
